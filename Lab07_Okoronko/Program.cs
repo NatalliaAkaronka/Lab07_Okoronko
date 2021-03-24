@@ -56,34 +56,60 @@ namespace Lab07_Okoronko
                 }
             }
 
-            // Console.WriteLine("Максимальное число массива: {0}, и его индексы {1} и {2}", max, a+1, b+1);
-            // Console.WriteLine("Минимельно число число массива: {0}, и его индексы {1} и {2}", min, c+1, d+1);
+            Console.WriteLine("Максимальное число массива: {0}, и его индексы {1} и {2}", max, a+1, b+1);
+            Console.WriteLine("Минимельно число число массива: {0}, и его индексы {1} и {2}", min, c+1, d+1);
             Console.WriteLine("Ввод элемента Аij");
             Console.Write("Введите i, значение не должно быть больше N: ");
             int i = Int32.Parse(Console.ReadLine());
             Console.Write("Введите j, значение не должно быть больше M: ");
             int j = Int32.Parse(Console.ReadLine());
-            int positionMax = M * a + b+1;
-            // Console.WriteLine(positionMax);
-            int positionMin = M * c + d+1;
-            // Console.WriteLine(positionMin);
-            int positionX = M * (i-1) + (j-1)+1;
-            // Console.WriteLine(positionX);
-            int distanseMax = Math.Abs(positionMax - positionX);
-            // Console.WriteLine(distanseMax);
-            int distanseMin = Math.Abs(positionMin - positionX);
-            // Console.WriteLine(distanseMin);
-            if (distanseMax < distanseMin)
+            // Расчет с начала матрицы
+            Console.WriteLine("Расчет положения элемента с начала матрицы");
+            int posMax = M * a + b+1;
+            // Console.WriteLine(posMax);
+            int posMin = M * c + d+1;
+            //Console.WriteLine(posMin);
+            int posX = M * (i-1) + (j-1)+1;
+            //Console.WriteLine(posX);
+            int disMax = Math.Abs(posMax - posX);
+            //Console.WriteLine(disMax);
+            int disMin = Math.Abs(posMin - posX);
+            //Console.WriteLine(disMin);
+            if (disMax < disMin)
             {
-                Console.WriteLine("Ваш элемент находится ближе к maximum");
+            Console.WriteLine("Ваш элемент находится ближе к maximum");
             }
-            else if (distanseMax == distanseMin)
+            else if (disMax == disMin)
             {
-                Console.WriteLine("Equal, Ваш элемент равноудален от обоих экстремумов");
+             Console.WriteLine("Equal, Ваш элемент равноудален от обоих экстремумов");
             }
             else
             {
-                Console.WriteLine("Ваш элемент находится ближе к minimum");
+            Console.WriteLine("Ваш элемент находится ближе к minimum");
+            }
+            // Расчет с конца матрицы
+            Console.Write("Расчет положения элемента с конца матрицы");
+            int positionMax =1+ M * (N-a) - b - 1;
+            //Console.WriteLine(positionMax);
+            int positionMin = 1+M * (N-c) - d - 1;
+            //Console.WriteLine(positionMin);
+            int positionX = 1+M * (N-(i - 1)) - (j - 1) - 1;
+           // Console.WriteLine(positionX);
+            int distanseMax = Math.Abs(positionMax - positionX);
+            //Console.WriteLine(distanseMax);
+            int distanseMin = Math.Abs(positionMin - positionX);
+            //Console.WriteLine(distanseMin);
+            if (distanseMax < distanseMin)
+            {
+                Console.WriteLine("\nВаш элемент находится ближе к maximum");
+            }
+            else if (distanseMax == distanseMin)
+            {
+                Console.WriteLine("\nEqual, Ваш элемент равноудален от обоих экстремумов");
+            }
+            else
+            {
+                Console.WriteLine("\nВаш элемент находится ближе к minimum");
             }
             Console.ReadLine();
        }
